@@ -43,7 +43,7 @@ and the second method which is jdbc using the same database (mysql patint_db) th
 ![2](https://user-images.githubusercontent.com/65183563/164981842-cf3511a1-b2ad-40bd-80c1-2cac2ad19c57.PNG)
 
 
-we created 3 more tables to authenticated users with jdbc
+we created 3 more tables to authenticate users with jdbc
 
 ![4](https://user-images.githubusercontent.com/65183563/164981905-b9dc885d-4a25-4e37-a060-01fad0633cab.PNG)
 
