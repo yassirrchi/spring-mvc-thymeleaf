@@ -18,7 +18,7 @@ import java.util.*;
 @AllArgsConstructor
 public class PatientController {
     private PatientRepository patientRepository;
-   @GetMapping(path="/index")
+   @GetMapping(path="/user/index")
     public String patients(Model model,
                            @RequestParam(name="page",defaultValue = "0") int page,
                            @RequestParam(name="size",defaultValue ="5" ) int size,
@@ -30,35 +30,35 @@ public class PatientController {
        model.addAttribute("keyword",keyword);
         return "patients";
     }
-    @GetMapping("/delete")
+    @GetMapping("/admin/delete")
     public String delete(Long id,String keyword,int page){
        patientRepository.deleteById(id);
-       return "redirect:/index?page="+page+"&keyword="+keyword;
+       return "redirect:/user/index?page="+page+"&keyword="+keyword;
     }
     @GetMapping("/")
     public String home( ){
 
-        return "redirect:/index";
+        return "home";
     }
     @GetMapping("/patientsjson")
     @ResponseBody
     public List<Patient> patientList(){
        return  patientRepository.findAll();
     }
-    @GetMapping("/formPatients")
+    @GetMapping("/admin/formPatients")
     public String formPatients(Model model){
        model.addAttribute("patient",new Patient());
        return "formPatients";
     }
-    @PostMapping("/save")
+    @PostMapping("/admin/save")
     public String Save(Model model, @Valid Patient patient, BindingResult bindingResult,@RequestParam(defaultValue = "0") int page,@RequestParam(defaultValue = "") String keyword){
        if(bindingResult.hasErrors())
            return "formPatients";
        patientRepository.save(patient);
-       return "redirect:/index?page="+page+"&keyword="+keyword;
+       return "redirect:/user/index?page="+page+"&keyword="+keyword;
 
     }
-    @GetMapping("/editPatient")
+    @GetMapping("/admin/editPatient")
     public String editPatient(Model model,Long id,String keyword,int page){
        Patient patient=patientRepository.findById(id).orElse(null);
        if(patient==null)
