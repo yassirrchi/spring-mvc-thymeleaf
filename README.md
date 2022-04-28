@@ -57,16 +57,38 @@ i filled these tables with
 
 ![7](https://user-images.githubusercontent.com/65183563/164981953-94ffda8a-6a81-4163-9112-f388252d374d.PNG)
 
+in this part we are moving from jdbc verification to UserDetails
 
+![2](https://user-images.githubusercontent.com/65183563/165654289-8dbd7558-c565-4e7c-a669-d6379a337029.PNG)
 
+![3](https://user-images.githubusercontent.com/65183563/165654343-d72b1d62-a7a3-4a75-ba07-20200d77d59c.PNG)
 
+and then, inserting another user for testing nammed "yassirrchi" identified by 1234 as a password with admin/user privileges, to the genrated table app_users that we've seen previously
 
+![1](https://user-images.githubusercontent.com/65183563/165654709-b6f95903-1eec-4fba-923d-3628e3dcd1c6.PNG)
 
+![4](https://user-images.githubusercontent.com/65183563/165654889-88b9d448-c6f9-4409-933f-f30d3e7690dd.PNG)
 
+now lets try our app with UserDetails
 
+![VID-20220427-174115](https://user-images.githubusercontent.com/65183563/165655162-8e96aa7b-43ed-42af-9545-74872db85e23.gif)
 
+"yassirrchi" is doesnt have ADMIN's role nor USER, cause there is a difference between roles and authorities in spring-security
+now lets try fixing this issue by making some changes in SecurityConfig.java 
 
+![VID-20220427-174317 (1)](https://user-images.githubusercontent.com/65183563/165655646-43939f49-d00b-4769-835e-1e93a2cdd4c2.gif)
 
+(hasRole to hasAuthority)
+-lets try once again
 
+![VID-20220427-174628](https://user-images.githubusercontent.com/65183563/165656766-570e2d58-0f41-4b85-a046-c1bec3c91ff3.gif)
+why "yassirrchi" is having only USER privileges even though he's an admin?
+cause our user doesnt respect the conditions that we've set while working with thymeleaf templates
 
+![VID-20220427-175352](https://user-images.githubusercontent.com/65183563/165657462-d42284d7-304a-46af-8600-42d6ebd215af.gif)
 
+so after changing the condition from hasRole to hasAuthority, lets try again yassirrchi (admin) and anwar (regular user)
+
+![VID-20220427-175648](https://user-images.githubusercontent.com/65183563/165658100-e77ee5a9-ab39-4360-9628-bde7005d1515.gif)
+
+finally our app is up and running 🙌
