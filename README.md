@@ -73,7 +73,7 @@ now lets try our app with UserDetails
 
 ![VID-20220427-174115](https://user-images.githubusercontent.com/65183563/165655162-8e96aa7b-43ed-42af-9545-74872db85e23.gif)
 
-"yassirrchi" is doesnt have ADMIN's role nor USER, cause there is a difference between roles and authorities in spring-security
+"yassirrchi" doesnt have ADMIN's role nor USER, cause there is a difference between roles and authorities in spring-security
 now lets try fixing this issue by making some changes in SecurityConfig.java 
 
 ![VID-20220427-174317 (1)](https://user-images.githubusercontent.com/65183563/165655646-43939f49-d00b-4769-835e-1e93a2cdd4c2.gif)
